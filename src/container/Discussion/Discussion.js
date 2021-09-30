@@ -8,7 +8,6 @@ const Discussion = () => {
       <section>
         <Comment />
         <Comment />
-        <Comment />
       </section>
       <section>
         <FullComment />
