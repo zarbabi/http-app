@@ -5,16 +5,8 @@ import "./newComment.css";
 const NewComment = () => {
   const [comment, setComment] = useState({ name: "", email: "", content: "" });
 
-  const nameHandler = (e) => {
-    setComment({ ...comment, name: e.target.value });
-  };
-
-  const emailHandler = (e) => {
-    setComment({ ...comment, email: e.target.value });
-  };
-
-  const contentHandler = (e) => {
-    setComment({ ...comment, content: e.target.value });
+  const changeHandler = (e) => {
+    setComment({ ...comment, [e.target.name]: e.target.value });
   };
 
   const postCommentHandler = (e) => {
@@ -28,15 +20,15 @@ const NewComment = () => {
     <div className="newComment">
       <div>
         <label>name</label>
-        <input type="text" onChange={nameHandler} />
+        <input type="text" onChange={changeHandler} name="name" />
       </div>
       <div>
         <label>email</label>
-        <input type="email" onChange={emailHandler} />
+        <input type="email" onChange={changeHandler} name="email" />
       </div>
       <div>
         <label>body</label>
-        <textarea type="textarea" onChange={contentHandler} />
+        <textarea type="textarea" onChange={changeHandler} name="content" />
       </div>
       <button onClick={postCommentHandler}>add new comment</button>
     </div>
