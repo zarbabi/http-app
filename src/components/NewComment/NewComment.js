@@ -2,18 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import "./newComment.css";
 
-const NewComment = () => {
+const NewComment = ({ onAddPost }) => {
   const [comment, setComment] = useState({ name: "", email: "", content: "" });
 
   const changeHandler = (e) => {
     setComment({ ...comment, [e.target.name]: e.target.value });
-  };
-
-  const postCommentHandler = (e) => {
-    axios
-      .post("http://localhost:3001/comments", comment)
-      .then((res) => console.log(res.data))
-      .catch();
   };
 
   return (
@@ -30,7 +23,7 @@ const NewComment = () => {
         <label>body</label>
         <textarea type="textarea" onChange={changeHandler} name="content" />
       </div>
-      <button onClick={postCommentHandler}>add new comment</button>
+      <button onClick={() => onAddPost(comment)}>add new comment</button>
     </div>
   );
 };
