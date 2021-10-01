@@ -12,9 +12,7 @@ const Discussion = () => {
     //const getComments = async () =>
     async function getComments() {
       try {
-        const { data } = await axios.get(
-          "https://jsonplaceholder.typicode.com/comments"
-        );
+        const { data } = await axios.get("http://localhost:3001/comments");
         setComments(data.slice(0, 4));
       } catch (error) {
         console.log(error);
