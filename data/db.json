@@ -39,6 +39,12 @@
       "email": "test@ex.com",
       "content": "test comment",
       "id": 6
+    },
+    {
+      "name": "Zahra",
+      "email": "z@ex.com",
+      "content": "teeest",
+      "id": 7
     }
   ]
 }
