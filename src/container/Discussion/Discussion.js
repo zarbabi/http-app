@@ -8,14 +8,18 @@ const Discussion = () => {
   const [comments, setComments] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/comments")
-      .then((response) => {
-        setComments(response.data.slice(0, 4));
-      })
-      .catch((error) => {
+    //const getComments = async () =>
+    async function getComments() {
+      try {
+        const { data } = await axios.get(
+          "https://jsonplaceholder.typicode.com/comments"
+        );
+        setComments(data.slice(0, 4));
+      } catch (error) {
         console.log(error);
-      });
+      }
+    }
+    getComments();
   }, []);
 
   return (
