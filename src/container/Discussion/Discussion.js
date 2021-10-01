@@ -53,7 +53,11 @@ const Discussion = () => {
     <main>
       <section>{renderComments()}</section>
       <section>
-        <FullComment commentId={selectedId}  setComments={setComments}/>
+        <FullComment
+          commentId={selectedId}
+          setComments={setComments}
+          setSelectedId={setSelectedId}
+        />
       </section>
       <section>
         <NewComment setComments={setComments} />
