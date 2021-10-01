@@ -4,6 +4,8 @@ import NewComment from "../../components/NewComment/NewComment";
 import "./Discussion.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 const Discussion = () => {
   const [comments, setComments] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
@@ -30,7 +32,10 @@ const Discussion = () => {
   const renderComments = () => {
     let renderValue = <p>Loading ...</p>;
 
-    if (error) renderValue = <p>fetching data failed !</p>;
+    if (error) {
+      renderValue = <p>fetching data failed !</p>;
+      toast.error("there is an error !");
+    }
 
     if (comments && !error) {
       renderValue = comments.map((c) => (
