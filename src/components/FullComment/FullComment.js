@@ -1,7 +1,7 @@
 import "./fullComment.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
-const FullComment = ({ commentId }) => {
+const FullComment = ({ commentId, setComments }) => {
   const [comment, setComment] = useState(null);
 
   useEffect(() => {
@@ -13,12 +13,14 @@ const FullComment = ({ commentId }) => {
     }
   }, [commentId]);
 
-  const deleteHandler = () => {
-    axios
-      .delete(`http://localhost:3001/comments/${commentId}`)
-      .then((res) => console.log(res.data))
-      .catch((error) => console.log(error));
+  const deleteHandler = async () => {
+    try {
+      await axios.delete(`http://localhost:3001/comments/${commentId}`);
+      const { data } = await axios.get("http://localhost:3001/comments");
+      setComments(data);
+    } catch (error) {}
   };
+
   let commentDetail = <p>please select a comment!</p>;
 
   if (commentId) commentDetail = <p>loading ...</p>;
