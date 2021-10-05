@@ -1,8 +1,7 @@
-
-import http from "../../services/httpService";
-
 import { useState } from "react";
 import "./newComment.css";
+import { addNewComment } from "../../services/addNewCommentService";
+import { getAllComments } from "../../services/getAllCommentsService";
 
 const NewComment = ({ setComments }) => {
   const [comment, setComment] = useState({ name: "", email: "", content: "" });
@@ -12,9 +11,8 @@ const NewComment = ({ setComments }) => {
   };
 
   const postCommentHandler = () => {
-    http
-      .post("/comments", comment)
-      .then((res) => http.get("/comments"))
+    addNewComment({ ...comment, posId: 10 })
+      .then((res) => getAllComments())
       .then((res) => setComments(res.data))
       .catch();
   };
