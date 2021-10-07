@@ -4,9 +4,8 @@
   flex-direction: column;
   justify-content: center;
   background: #e0e7ff;
-  width: 600px;
+  width: 100%;
   height: 200px;
   color: #4338cb;
   border-radius: 5px;
- 
 }
