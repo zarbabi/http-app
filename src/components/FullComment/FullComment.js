@@ -4,9 +4,9 @@ import { deleteComment } from "../../services/deleteCommentService";
 import { getAllComments } from "../../services/getAllCommentsService";
 import { getOneComments } from "../../services/getOneCommentService";
 
-const FullComment = ({ commentId, setComments, setSelectedId }) => {
+const FullComment = ({ setComments, setSelectedId, match }) => {
   const [comment, setComment] = useState(null);
-
+  const commentId = match.params.id;
   useEffect(() => {
     if (commentId) {
       getOneComments(commentId)
