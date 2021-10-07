@@ -3,18 +3,18 @@ import "./newComment.css";
 import { addNewComment } from "../../services/addNewCommentService";
 import { getAllComments } from "../../services/getAllCommentsService";
 
-const NewComment = ({ setComments }) => {
+const NewComment = ({ history }) => {
   const [comment, setComment] = useState({ name: "", email: "", content: "" });
 
   const changeHandler = (e) => {
     setComment({ ...comment, [e.target.name]: e.target.value });
   };
 
-  const postCommentHandler = () => {
-    addNewComment({ ...comment, posId: 10 })
-      .then((res) => getAllComments())
-      .then((res) => setComments(res.data))
-      .catch();
+  const postCommentHandler = async () => {
+    try {
+      await addNewComment({ ...comment, posId: 10 });
+      history.push("/");
+    } catch (error) {}
   };
 
   return (

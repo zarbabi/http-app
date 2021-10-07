@@ -26,26 +26,6 @@
       "email": "test@ex.com",
       "content": "test comment",
       "id": 6
-    },
-    {
-      "name": "ds",
-      "email": "dsfg",
-      "content": "sdg",
-      "id": 7
-    },
-    {
-      "name": "gg",
-      "email": "g",
-      "content": "g",
-      "posId": 10,
-      "id": 8
-    },
-    {
-      "name": "gg",
-      "email": "g",
-      "content": "g",
-      "posId": 10,
-      "id": 9
     }
   ]
 }
